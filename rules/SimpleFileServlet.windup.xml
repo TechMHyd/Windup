@@ -1,0 +1,65 @@
+<?xml version="1.0"?> 
+  <ruleset id="JBoss5-web-servlet-class"
+    xmlns="http://windup.jboss.org/schema/jboss-ruleset" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset: http://windup.jboss.org/schema/windup-jboss-ruleset.xsd">
+    <metadata>
+        <description>
+            This ruleset looks for servlet-class element having SimpleFileServlet.
+        </description>
+        <dependencies>
+            <addon id="org.jboss.windup.rules,windup-rules-javaee,2.4.1.Final"/>
+            <addon id="org.jboss.windup.rules,windup-rules-java,2.4.1.Final"/>
+        </dependencies>
+       <sourceTechnology id="eap" versionRange="(4,5)"/>
+        <targetTechnology id="eap" versionRange="[6,)"/>
+        <tag>reviewed-2015-09-24</tag>
+    </metadata>
+   <rules> 
+    <rule id="JBoss5-web-servlet-class_001">
+            <when>
+                <xmlfile matches="web-app/servlet/servlet-class">
+					<namespace  uri="http://java.sun.com/xml/ns/javaee"/>
+					<!--<namespace uri="http://www.w3.org/2001/XMLSchema-instance"/>-->
+				</xmlfile>
+            </when>
+            <perform>  
+                <iteration>
+                    <classification title="Standard Java EE 6 " effort="1"/>
+                    <hint title="The servlet-class element having invalid SimpleFileServlet">
+                      <message>
+                        Replace The servlet-class element having com.ibm.ws.webcontainer.servlet.SimpleFileServlet with org.apache.catalina.servlets.DefaultServlet.
+                      </message>
+					  <link href="http://docs.oracle.com/javaee/6/api/javax/servlet/annotation/package-summary.html" 
+					  title="Java EE 6 servlet-class element having SimpleFileServlet" />
+                    </hint>
+                </iteration>
+				
+				
+            </perform>
+        </rule>
+		
+		<rule id="JBoss5-web-servlet-class_002">
+            <when>
+                <xmlfile matches="web-app/servlet/servlet-class" >
+					<namespace  uri="http://java.sun.com/xml/ns/javaee"/>
+					<!--<namespace uri="http://www.w3.org/2001/XMLSchema-instance"/>-->
+				</xmlfile>
+            </when>
+            <perform>  
+                <iteration>
+                    <classification title="Standard Java EE 6 " effort="1"/>
+                    <hint title="The servlet-class element having invalid SimpleFileServlet">
+                      <message>
+                        Replace The servlet-class element having com.ibm.ws.webcontainer.servlet.SimpleFileServlet with org.apache.catalina.servlets.DefaultServlet.
+                      </message>
+					  <link href="http://docs.oracle.com/javaee/6/api/javax/servlet/annotation/package-summary.html" 
+					  title="Java EE 6 servlet-class element having SimpleFileServlet" />
+                    </hint>
+                </iteration>
+				
+				
+            </perform>
+        </rule>
+</rules> 
+</ruleset> 

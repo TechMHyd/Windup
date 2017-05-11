@@ -1,0 +1,14 @@
+<web-app>
+	<display-name>Counter Web Application</display-name>
+	<servlet>
+            <servlet-name>SimpleFileServlet</servlet-name>
+             <servlet-class>
+                    com.ibm.ws.webcontainer.servlet.SimpleFileServlet
+              </servlet-class>
+              <load-on-startup>1</load-on-startup>
+     </servlet>
+	<servlet-mapping>
+            <servlet-name>SimpleFileServlet</servlet-name>
+              <url-pattern>*.htm</url-pattern>
+    </servlet-mapping>
+</web-app>
